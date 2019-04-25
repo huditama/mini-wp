@@ -123,7 +123,6 @@ let app = new Vue({
                 .get(`${serverUrl}/users/randomFact`, { headers: { token } })
                 .then(({ data }) => {
                     this.randomFact = data.text
-                    console.log(this.randomFact, '===')
                 })
                 .catch((err) => {
                     console.log(err)
@@ -158,7 +157,7 @@ let app = new Vue({
                 })
                 .then(({ data }) => {
                     swal("Success!", `${data.message}`, "success");
-                    this.userArticles.push(data.createdArticle)
+                    this.getArticles()
                     this.currentPage = 'dashboard'
                     this.title = ''
                     this.content = ''
